@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import { useRouter } from 'hooks/use-router';
+import CreateRoom from 'components/CreateRoom';
+import JoinRoom from 'components/JoinRoom';
 
 const CreateOrJoinRoom: FC = () => {
-  const { history } = useRouter();
   return (
     <>
-      <h2>Digichips</h2>
-      <button onClick={() => history.push('/create')}>Create Room</button>
-      <button onClick={() => history.push('/join')}>Join Room</button>
+      <h1>Digichips</h1>
+      <CreateRoom></CreateRoom>
+      <JoinRoom></JoinRoom>
     </>
   );
 };

@@ -1,21 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CreateOrJoinRoom from 'components/CreateOrJoinRoom';
-import CreateRoom from 'components/CreateRoom';
-import JoinRoom from 'components/JoinRoom';
-
+import { SocketStoreProvider } from 'stores/useSocket';
+import { UserStoreProvider } from 'stores/useUser';
 function App(): JSX.Element {
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <CreateOrJoinRoom></CreateOrJoinRoom>
-        </Route>
-        <Route path="/create">
-          <CreateRoom></CreateRoom>
-        </Route>
-        <Route path="/join">
-          <JoinRoom></JoinRoom>
+          <SocketStoreProvider>
+            <UserStoreProvider>
+              <CreateOrJoinRoom></CreateOrJoinRoom>
+            </UserStoreProvider>
+          </SocketStoreProvider>
         </Route>
       </Switch>
     </Router>
